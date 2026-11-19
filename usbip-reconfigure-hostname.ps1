@@ -9,7 +9,7 @@ Start-Transcript -Path $log -Force
 $usbip = 'C:\Program Files\usbip\usbip.exe'
 $nssm  = 'C:\ProgramData\chocolatey\bin\nssm.exe'
 $svc   = 'usbip-bindall'
-$host  = 'xaver-ThinkCentre-M720t'
+$server = 'xaver-ThinkCentre-M720t'
 $busids = @('1-4', '1-9', '1-10.1')
 
 Write-Output "== Stop service =="
@@ -21,10 +21,10 @@ Write-Output "== Detach all =="
 & $usbip detach --all 2>&1 | Write-Output
 Start-Sleep -Seconds 1
 
-Write-Output "== Attach all via hostname $host =="
+Write-Output "== Attach all via hostname $server =="
 foreach ($b in $busids) {
     Write-Output ("attaching {0} ..." -f $b)
-    & $usbip attach -r $host -b $b 2>&1 | Write-Output
+    & $usbip attach -r $server -b $b 2>&1 | Write-Output
 }
 
 Write-Output "== Stash (persist) =="
