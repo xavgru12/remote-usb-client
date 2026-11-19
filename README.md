@@ -79,6 +79,9 @@ Exclusion is by **VID:PID**, not bus-ID. To exclude more devices, edit
 $ExcludeVidPid = @('0bda:0129', '046d:0825')   # card reader, webcam
 ```
 
+Full detail — the discovery logic, parsing, design decisions and edge cases —
+is in [AUTO-DISCOVERY.md](AUTO-DISCOVERY.md).
+
 ## Repository files
 
 | File | Purpose |
